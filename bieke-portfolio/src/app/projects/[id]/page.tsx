@@ -3,64 +3,14 @@ import { Calendar, Tag, ArrowLeft, PlayCircle } from "lucide-react";
 import Link from "next/link";
 import { projects } from "../../data/siteData";
 
+// Define type for params
+interface ProjectPageProps {
+  params: {
+    id: string;
+  };
+}
 
-// const projects = [
-//   {
-//     id: "1",
-//     title: "Mix and Move",
-//     description:
-//       "A full creative package for Mix and Move, including a custom website, promotional video, logo design, and graphic assets for both digital and print use.",
-//     cover: "/images/mixandmove/mixandmovehero.png",
-//     gallery: [
-//       "/images/mixandmove/mixandmove1.png",
-//       "/images/mixandmove/mixandmove2.png",
-//       "/images/mixandmove/mixandmove3.png",
-//     ],
-//     video: "https://www.youtube.com/embed/dQw4w9WgXcQ", // vervang door je eigen upload
-//     date: "2024-01-20",
-//     technologies: ["React", "Next.js", "TailwindCSS", "Adobe After Effects", "Illustrator"],
-//     role: "Full-stack & Creative Designer",
-//     link: "https://example.com/mixandmove", // vervang door echte site als je die online zet
-//     caseStudy: `
-// For Mix and Move, I handled the complete creative direction.  
-// The project included designing and developing their promotional website, creating a dynamic launch video, and producing both digital and print graphics to unify their brand identity.  
-
-// The website was built in Next.js with a clean, modern UI to match their energetic branding.  
-// The promotional video was edited in After Effects, featuring animated typography and bold transitions.  
-// Additionally, I designed their logo and social media templates to ensure brand consistency across all platforms.  
-
-// This holistic approach helped Mix and Move launch with a strong, recognizable visual identity and digital presence.
-//     `,
-//   },
-
-//   {
-//     id: "2",
-//     title: "AI Chatbot",
-//     description:
-//       "Custom AI-powered chatbot that integrates seamlessly with a client’s support system. Trained with domain-specific knowledge and optimized for quick, human-like responses.",
-//     cover: "https://picsum.photos/1000/500?random=20",
-//     gallery: [
-//       "https://picsum.photos/600/400?random=21",
-//       "https://picsum.photos/600/400?random=22",
-//       "https://picsum.photos/600/400?random=23",
-//     ],
-//     video: null,
-//     date: "2024-03-05",
-//     technologies: ["Python", "FastAPI", "Hugging Face", "PostgreSQL"],
-//     role: "Backend Developer",
-//     link: "https://example.com/chatbot",
-//     caseStudy: `
-// The chatbot was designed to reduce support tickets for the client by 40%.  
-// I developed the backend using FastAPI, integrated NLP models from Hugging Face, and connected everything to a PostgreSQL database.  
-
-// The system could understand customer intent, provide instant responses, and escalate complex cases to human operators.  
-// End result: faster customer service and happier clients.
-//     `,
-//   },
-// ];
-
-
-export default function ProjectPage({ params }: { params: { id: string } }) {
+export default function ProjectPage({ params }: ProjectPageProps) {
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) return notFound();
@@ -146,35 +96,30 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       )}
 
       {/* Video Section */}
-     {/* Video Section */}
-{project.video && (
-  <div className="mb-12">
-    <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-      <PlayCircle size={22} /> Project Video
-    </h3>
-
-    <div className="aspect-video w-full rounded-lg overflow-hidden shadow-lg">
-      {project.video.endsWith(".mp4") ? (
-        // Local video
-        <video
-          src={project.video}
-          controls
-          className="w-full h-full object-cover"
-        />
-      ) : (
-        // Assume YouTube embed URL
-        <iframe
-          src={project.video}
-          title={`${project.title} video`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full"
-        ></iframe>
+      {project.video && (
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+            <PlayCircle size={22} /> Project Video
+          </h3>
+          <div className="aspect-video w-full rounded-lg overflow-hidden shadow-lg">
+            {project.video.endsWith(".mp4") ? (
+              <video
+                src={project.video}
+                controls
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <iframe
+                src={project.video}
+                title={`${project.title} video`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            )}
+          </div>
+        </div>
       )}
-    </div>
-  </div>
-)}
-
 
       {/* Case Study */}
       {project.caseStudy && (
