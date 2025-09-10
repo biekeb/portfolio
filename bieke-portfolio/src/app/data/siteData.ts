@@ -123,7 +123,7 @@ export const projects = [
       "/images/mixandmove/menu.jpg",
       "/images/mixandmove/mix&move_logo_White_background.png",
     ],
-    video: "/images/mixandmove/mixandmoveteaser.mp4",
+    video: "/images/squidgame/TelenetSquidGame_gameplay-video.mp4",
     date: "2025-03-01",
     technologies: ["React", "Next.js", "TailwindCSS", "Adobe After Effects", "Illustrator"],
     role: "Full-stack & Creative Designer",
