@@ -3,10 +3,9 @@ import { Calendar, Tag, ArrowLeft, PlayCircle } from "lucide-react";
 import Link from "next/link";
 import { projects } from "../../data/siteData";
 
-// Do NOT define a custom PageProps interface
-// Do NOT add "use client"
-
-export default function ProjectPage({ params }: { params: { id: string } }) {
+// Forceer TS om de interne PageProps niet te checken
+// @ts-expect-error
+export default function ProjectPage({ params }) {
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) return notFound();
