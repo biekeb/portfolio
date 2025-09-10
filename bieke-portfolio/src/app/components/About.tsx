@@ -16,7 +16,7 @@ export default function About() {
             About Me
           </h6>
           <h2 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl text-white">
-            Hey, I'm <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">Bieke</span>
+  Hey, I&apos;m <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">Bieke</span>
           </h2>
           <p className="text-white/70 leading-relaxed text-lg md:text-xl max-w-xl">
             Full-stack developer focused on modern UX, interactive design, and web performance. 
