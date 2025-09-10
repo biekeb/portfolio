@@ -3,14 +3,7 @@ import { Calendar, Tag, ArrowLeft, PlayCircle } from "lucide-react";
 import Link from "next/link";
 import { projects } from "../../data/siteData";
 
-// Define type for params
-interface ProjectPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function ProjectPage({ params }: ProjectPageProps) {
+export default function ProjectPage({ params }) {
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) return notFound();
@@ -101,14 +94,17 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
             <PlayCircle size={22} /> Project Video
           </h3>
+
           <div className="aspect-video w-full rounded-lg overflow-hidden shadow-lg">
             {project.video.endsWith(".mp4") ? (
+              // Local video
               <video
                 src={project.video}
                 controls
                 className="w-full h-full object-cover"
               />
             ) : (
+              // Assume YouTube embed URL
               <iframe
                 src={project.video}
                 title={`${project.title} video`}
