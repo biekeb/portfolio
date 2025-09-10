@@ -36,3 +36,8 @@ body {
 #services {
 padding: 8%;
 }
+
+#portfolio {
+margin: 3%;
+border-radius: 20px;
+}

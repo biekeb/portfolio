@@ -1,36 +1,34 @@
-
 import Link from "next/link";
 import { projects } from "../data/siteData"; 
 
 export default function Portfolio() {
   return (
-    <div id="portfolio" className="px-5 lg:px-10">
-        <div className="bg-darkBg rounded-2xl overflow-hidden py-20">
-        <div className="container mx-auto max-w-[1320px] px-5"></div>
-      <div className="container mx-auto px-6">
+    <section id="portfolio" className="px-5 lg:px-10 py-24 bg-darkBg">
+      <div className="max-w-[1320px] mx-auto">
         {/* Titel */}
-          <div className="md:w-4/5 lg:w-3/4 md:mx-auto">
-            <h6 className="pl-[20px] relative font-outfit font-medium text-sm uppercase tracking-wider text-white/40">
-              Portfolio
-            </h6>
-            <h2 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl text-white mt-2">
-              Recent <span className="bg-themeGradient bg-clip-text text-transparent">Works</span>
-            </h2>
-            <p className="leading-[1.75] text-white/70 mt-3">descrption</p>
-          </div>
+        <div className="md:w-4/5 lg:w-3/4 mx-auto mb-16 text-center md:text-left">
+          <h6 className="pl-[20px] relative font-outfit font-medium text-sm uppercase tracking-wider text-white/40 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[12px] before:h-[12px] before:rounded-full before:border-2 before:border-white/30">
+            Portfolio
+          </h6>
+          <h2 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl text-white mt-2">
+            Recent <span className="bg-themeGradient bg-clip-text text-transparent">Works</span>
+          </h2>
+          <p className="leading-[1.75] text-white/70 mt-3">
+            Here are some of my latest projects showcasing modern web development, interactive design, and performance optimization.
+          </p>
+        </div>
 
         {/* Projecten Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project) => (
             <div
-           
               key={project.id}
               className="group relative bg-gradient-to-br from-gray-900/80 to-gray-800/50 
-                backdrop-blur-lg border border-bottom-white/10 rounded-3xl shadow-xl overflow-hidden 
+                backdrop-blur-lg border border-white/10 rounded-3xl shadow-xl overflow-hidden 
                 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500"
             >
               {/* Afbeelding */}
-              <div className="overflow-hidden rounded-3xl">
+              <div className="overflow-hidden rounded-t-3xl">
                 <img
                   src={project.cover}
                   alt={project.title}
@@ -40,7 +38,7 @@ export default function Portfolio() {
 
               {/* Content */}
               <div className="p-6">
-                <h3 style={{color:"white"}} className="text-2xl font-semibold group-hover:text-purple-400 transition">
+                <h3 className="text-2xl font-semibold text-white group-hover:text-purple-400 transition">
                   {project.title}
                 </h3>
                 <p className="text-sm text-gray-400">{project.category}</p>
@@ -72,10 +70,8 @@ export default function Portfolio() {
               </div>
             </div>
           ))}
-           </div>
         </div>
       </div>
-   </div>
-  
+    </section>
   );
 }

@@ -170,7 +170,7 @@ Using React, Three.js, and Blender, I created a dynamic, film noir-inspired expe
     title: "final show 23",
     category: "Website",
 
-    description: 'The Final Show is an annual event that takes place on the Kaai campus of Erasmus University of Applied Sciences Brussels. This is a show created, from A to Z, by the second-year students of the Multimedia & Creative Technology course. Best projects, information about the categories as well as great activities will be discussed here.',
+    description: 'The Final Show is an annual event that takes place on the Kaai campus of Erasmus',
 
     cover: "images/finalshow/finalshow1920x1080.png",
     gallery: [
