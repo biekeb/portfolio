@@ -3,8 +3,7 @@ import { Calendar, Tag, ArrowLeft, PlayCircle } from "lucide-react";
 import Link from "next/link";
 import { projects } from "../../data/siteData";
 
-// Forceer TS om de interne PageProps niet te checken
-// @ts-expect-error
+// @ts-expect-error: params type mismatch with Next.js internal PageProps
 export default function ProjectPage({ params }) {
   const project = projects.find((p) => p.id === params.id);
 
