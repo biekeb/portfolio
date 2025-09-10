@@ -1,3 +1,5 @@
+"use client";
+
 import { notFound } from "next/navigation";
 import { Calendar, Tag, ArrowLeft, PlayCircle } from "lucide-react";
 import Link from "next/link";
@@ -7,15 +9,15 @@ interface PageProps {
   params: { id: string };
 }
 
-// Make the page async to satisfy App Router typing
 export default async function ProjectPage({ params }: PageProps) {
-  // you can fetch here if needed
+  // Find project by ID
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) return notFound();
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12 text-white">
+      {/* Back link */}
       <Link
         href="/projects"
         className="flex items-center gap-2 text-white/60 hover:text-white transition mb-6"
@@ -23,15 +25,18 @@ export default async function ProjectPage({ params }: PageProps) {
         <ArrowLeft size={18} /> Back to Projects
       </Link>
 
+      {/* Project Header */}
       <h1 className="text-4xl md:text-5xl font-bold mb-3">{project.title}</h1>
       <p className="text-lg text-white/70 mb-6">{project.description}</p>
 
+      {/* Cover Image */}
       <img
         src={project.cover}
         alt={project.title}
         className="rounded-xl shadow-lg mb-10 w-full"
       />
 
+      {/* Metadata */}
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         <div>
           <h3 className="text-xl font-semibold mb-3">Project Details</h3>
@@ -73,6 +78,7 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
       </div>
 
+      {/* Gallery Section */}
       {project.gallery?.length > 0 && (
         <>
           <h3 className="text-2xl font-semibold mb-4">Gallery</h3>
@@ -89,6 +95,7 @@ export default async function ProjectPage({ params }: PageProps) {
         </>
       )}
 
+      {/* Video Section */}
       {project.video && (
         <div className="mb-12">
           <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
@@ -96,7 +103,11 @@ export default async function ProjectPage({ params }: PageProps) {
           </h3>
           <div className="aspect-video w-full rounded-lg overflow-hidden shadow-lg">
             {project.video.endsWith(".mp4") ? (
-              <video src={project.video} controls className="w-full h-full object-cover" />
+              <video
+                src={project.video}
+                controls
+                className="w-full h-full object-cover"
+              />
             ) : (
               <iframe
                 src={project.video}
@@ -110,6 +121,7 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
       )}
 
+      {/* Case Study */}
       {project.caseStudy && (
         <div>
           <h3 className="text-2xl font-semibold mb-4">Case Study</h3>
