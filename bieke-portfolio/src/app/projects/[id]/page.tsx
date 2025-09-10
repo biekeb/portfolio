@@ -3,13 +3,10 @@ import { Calendar, Tag, ArrowLeft, PlayCircle } from "lucide-react";
 import Link from "next/link";
 import { projects } from "../../data/siteData";
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+// Do NOT define a custom PageProps interface
+// Do NOT add "use client"
 
-export default function ProjectPage({ params }: PageProps) {
+export default function ProjectPage({ params }: { params: { id: string } }) {
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) return notFound();
