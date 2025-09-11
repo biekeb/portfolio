@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import pic from "/public/images/bieke.jpg";
+import pic from "/public/images/fotocvsquare.png";
 
 export default function About() {
   return (
