@@ -106,9 +106,6 @@ export const servicesData = {
 
 
 
-
-
-
 export const projects = [
   {
     id: "1",
@@ -123,7 +120,7 @@ export const projects = [
       "/images/mixandmove/menu.jpg",
       "/images/mixandmove/mix&move_logo_White_background.png",
     ],
-    video: "/images/squidgame/TelenetSquidGame_gameplay-video.mp4",
+    video: "/https://youtu.be/HXWy4Ry9hLY?feature=shared",
     date: "2025-03-01",
     technologies: ["React", "Next.js", "TailwindCSS", "Adobe After Effects", "Illustrator"],
     role: "Full-stack & Creative Designer",
@@ -147,12 +144,15 @@ This holistic approach helped Mix and Move launch with a strong, recognizable vi
     category: "bachelor project",
 
     description: 'I developed Noir Soir: Rouge Clues, a 1950s murder mystery game, as my final project. Players solve the murder of a mafia boss by gathering clues and interrogating suspects. ',
+    pdf: "/images/magazine.pdf",
 
-    cover: "images/noirsoir/noirsoir1920x1080.png",
+    cover: "/images/noirsoir/noirsoir1920x1080.png",
     gallery: [
-      "https://picsum.photos/600/400?random=21",
-      "https://picsum.photos/600/400?random=22",
-      "https://picsum.photos/600/400?random=23",
+      "/images/noirsoir/ns1.png",
+      "/images/noirsoir/ns2.png",
+      "/images/noirsoir/ns3.png",
+        "/images/noirsoir/ns4.png",
+
     ],
     video: "https//youtu.be/mWUtJOmzCDQ",
     date: "2024-06-01",
@@ -208,7 +208,7 @@ End result: faster customer service and happier clients.
     date: "2024-12-13",
     technologies: ["Python", "FastAPI", "Hugging Face", "PostgreSQL"],
     role: "Backend Developer",
-    link: "https://www.finalshow.be",
+    link: "https://telenetsquidgame.com/",
     caseStudy: `
 The chatbot was designed to reduce support tickets for the client by 40%.  
 I developed the backend using FastAPI, integrated NLP models from Hugging Face, and connected everything to a PostgreSQL database.  
