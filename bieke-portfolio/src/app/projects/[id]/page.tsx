@@ -1,5 +1,9 @@
+"use client";
+
+
+import { useState } from "react";
 import { notFound } from "next/navigation";
-import { Calendar, Tag, ArrowLeft, PlayCircle } from "lucide-react";
+import { Calendar, Tag, ArrowLeft, PlayCircle, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { projects } from "../../data/siteData";
 
@@ -7,26 +11,39 @@ import { projects } from "../../data/siteData";
 function getEmbedUrl(url: string) {
   if (!url) return url;
 
-  // handle youtu.be links
   if (url.includes("youtu.be")) {
     const id = url.split("/").pop();
     return `https://www.youtube.com/embed/${id}`;
   }
 
-  // handle normal YouTube watch links
   if (url.includes("youtube.com/watch")) {
     const id = new URL(url).searchParams.get("v");
     return id ? `https://www.youtube.com/embed/${id}` : url;
   }
 
-  return url; // fallback (mp4 or already embed link)
+  return url;
 }
 
 // @ts-expect-error: params type mismatch with Next.js internal PageProps
 export default function ProjectPage({ params }) {
   const project = projects.find((p) => p.id === params.id);
+  const [modalImgIndex, setModalImgIndex] = useState<number | null>(null); // index of current image
 
   if (!project) return notFound();
+  const gallery = project.gallery || [];
+
+  const openModal = (index: number) => setModalImgIndex(index);
+  const closeModal = () => setModalImgIndex(null);
+
+  const prevImage = () => {
+    if (modalImgIndex === null) return;
+    setModalImgIndex((modalImgIndex - 1 + gallery.length) % gallery.length);
+  };
+
+  const nextImage = () => {
+    if (modalImgIndex === null) return;
+    setModalImgIndex((modalImgIndex + 1) % gallery.length);
+  };
 
   return (
     <div className="max-w-[1320px] mx-auto px-5 md:px-10 xl:px-5 pt-24 xl:pt-28 text-white">
@@ -43,7 +60,6 @@ export default function ProjectPage({ params }) {
         {project.title}
       </h1>
       <p className="text-lg text-white/70 max-w-3xl mb-10">{project.description}</p>
-
 
       {/* Video */}
       {project.video && (
@@ -70,32 +86,6 @@ export default function ProjectPage({ params }) {
           </div>
         </div>
       )}
-{/* PDF Case Study */}
-{project.pdf && (
-  <div className="mb-16">
-    <h3 className="text-2xl font-semibold mb-6">Magazine PDF</h3>
-    <div className="bg-darkBg p-6 rounded-xl shadow-md">
-      {/* Knop om te openen/downloaden */}
-      <a
-        href={project.pdf}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 transition text-white rounded-lg font-medium"
-      >
-        📄 View / Download PDF
-      </a>
-
-      {/* Optioneel inline preview */}
-      <div className="mt-6 aspect-[3/4] w-full bg-black/40 rounded-xl overflow-hidden shadow-md">
-        <iframe
-          src={project.pdf}
-          title={`${project.title} PDF`}
-          className="w-full h-full"
-        />
-      </div>
-    </div>
-  </div>
-)}
 
       {/* Project Details + Technologies */}
       <div className="grid md:grid-cols-2 gap-8 mb-16">
@@ -140,14 +130,15 @@ export default function ProjectPage({ params }) {
       </div>
 
       {/* Gallery */}
-      {project.gallery?.length > 0 && (
+      {gallery.length > 0 && (
         <div className="mb-16">
           <h3 className="text-2xl font-semibold mb-6">Gallery</h3>
           <div className="grid md:grid-cols-3 gap-6">
-            {project.gallery.map((img, i) => (
+            {gallery.map((img, i) => (
               <div
                 key={i}
-                className="overflow-hidden rounded-xl bg-darkBg shadow-md"
+                className="overflow-hidden rounded-xl bg-darkBg shadow-md cursor-pointer"
+                onClick={() => openModal(i)}
               >
                 <img
                   src={img}
@@ -157,6 +148,40 @@ export default function ProjectPage({ params }) {
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Modal */}
+      {modalImgIndex !== null && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+          <button
+            onClick={closeModal}
+            className="absolute top-5 right-5 text-white p-2 hover:bg-white/20 rounded-full transition"
+          >
+            <X size={24} />
+          </button>
+
+          {/* Prev Arrow */}
+          <button
+            onClick={prevImage}
+            className="absolute left-5 text-white p-2 hover:bg-white/20 rounded-full transition"
+          >
+            <ChevronLeft size={32} />
+          </button>
+
+          {/* Next Arrow */}
+          <button
+            onClick={nextImage}
+            className="absolute right-5 text-white p-2 hover:bg-white/20 rounded-full transition"
+          >
+            <ChevronRight size={32} />
+          </button>
+
+          <img
+            src={gallery[modalImgIndex]}
+            alt="Enlarged screenshot"
+            className="max-h-[90%] max-w-[90%] rounded-xl shadow-xl"
+          />
         </div>
       )}
 
@@ -174,3 +199,4 @@ export default function ProjectPage({ params }) {
     </div>
   );
 }
+
