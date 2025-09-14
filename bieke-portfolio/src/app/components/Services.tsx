@@ -54,7 +54,7 @@ const Services = () => {
           <motion.div
             key={index}
             className="z-[1] p-8 space-y-3 md:space-y-0 md:flex md:items-center bg-darkBg rounded-lg relative overflow-hidden before:content-[''] before:absolute before:-z-[1] before:left-0 before:top-0 before:w-full before:h-full before:bg-themeGradient before:opacity-0 hover:before:opacity-10 before:transition-all before:ease-linear before:duration-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-themeGradient"
-            variants={itemVariants}
+            // variants={itemVariants}
           >
             <div className="md:w-[15%] text-white">
               <span className="font-outfit text-2xl xl:text-3xl font-medium">{item.number}/</span>
