@@ -167,7 +167,7 @@ Using React, Three.js, and Blender, I created a dynamic, film noir-inspired expe
   },
   {
     id: "3",
-    title: "final show 23",
+    title: "Final Show 23",
     category: "Website",
 
     description: 'The Final Show is an annual event that takes place on the Kaai campus of Erasmus',
@@ -180,14 +180,19 @@ Using React, Three.js, and Blender, I created a dynamic, film noir-inspired expe
     ],
     video: "/images/finalshow/finalshow.mp4",
     date: "2023-06-01",
-    technologies: ["Python", "FastAPI", "Hugging Face", "PostgreSQL"],
-    role: "Backend Developer",
+    technologies: ["Three.js", "React", "WebGL", "Blender", "After Effects"],
+    role: "Motion Designer & Frontend Developer",
     link: "https://www.finalshow.be",
     caseStudy: `
-The chatbot was designed to reduce support tickets for the client by 40%.  
-I developed the backend using FastAPI, integrated NLP models from Hugging Face, and connected everything to a PostgreSQL database.  
-End result: faster customer service and happier clients.
-    `,
+The Final Show 23 was a three-week group project with four team members, created to promote the annual event on the Kaai campus of Erasmus.  
+
+My main responsibilities were twofold:  
+- **Motion Design**: I designed and produced the animated assets that gave the website its dynamic and engaging feel.  
+- **Main 3D Page**: I built the interactive homepage featuring a full 3D building scene, modeled and implemented in Three.js and React.  
+
+The collaboration required close coordination between design and development, ensuring a smooth user experience while showcasing the creative spirit of the event. The final result was an immersive web experience that successfully highlighted the essence of the Final Show.
+
+    `,  
     stack: ["Three.js", "React", "WebGL"],
 
   },
@@ -196,25 +201,55 @@ End result: faster customer service and happier clients.
     title: "Telenet squid game",
     category: "Website",
 
-    description: 'I developed Noir Soir: Rouge Clues, a 1950s murder mystery game, as my final project. Players solve the murder of a mafia boss by gathering clues and interrogating suspects. Using React, Three.js, and Blender, I created a dynamic, film noir-inspired experience. The game combines intellectual challenges with an engaging story, offering an affordable, immersive alternative to costly modern games. This project reflects my passion for storytelling, game design, and innovative technology.',
+    description: 'An immersive online game inspired by the popular Squid Game series, developed to celebrate the launch of its second season.',
 
-    cover: "images/squidgame/squidgame1920x1080.png",
+    cover: "/images/squidgame/squidgame1920x1080.png",
     gallery: [
-      "https://picsum.photos/600/400?random=21",
-      "https://picsum.photos/600/400?random=22",
-      "https://picsum.photos/600/400?random=23",
+      "/images/squidgame/squidgame1920x1080.png",
+      "/images/squidgame/sq1.png",
     ],
     video: "/images/squidgame/TelenetSquidGame_gameplay-video.mp4",
     date: "2024-12-13",
-    technologies: ["Python", "FastAPI", "Hugging Face", "PostgreSQL"],
-    role: "Backend Developer",
+    technologies: ["Three.js", "React", "WebGL", "Motion Detection", "JavaScript"],
+    role: "Frontend Developer & Motion Designer",
     link: "https://telenetsquidgame.com/",
     caseStudy: `
-The chatbot was designed to reduce support tickets for the client by 40%.  
-I developed the backend using FastAPI, integrated NLP models from Hugging Face, and connected everything to a PostgreSQL database.  
-End result: faster customer service and happier clients.
+To celebrate the launch of Squid Game Season 2 on December 26, we developed "The Telenet Squid Game," an innovative browser-based game playable on PC and tablet.  
+
+Players are dropped into an arena and must navigate the iconic Red Light, Green Light challenge using webcam motion detection. Freeze when the doll looks, sprint when she doesn't — one mistake and the player is out.  
+
+The game supports up to four players simultaneously, with a live leaderboard and exclusive prizes like a Squid Game Xmas sweater and goodie bag.  
+
+My role focused on **motion design** and the **frontend implementation**, including integrating motion detection mechanics, building interactive 3D arenas with Three.js, and ensuring a smooth multiplayer experience. The project required tight collaboration between designers, developers, and motion graphics specialists to deliver an engaging and immersive experience.
+
     `,
     stack: ["Three.js", "React", "WebGL"],
 
   },
+  {
+  id: "5",
+  title: "Silhouetten in Verval",
+  category: "Interactive Art Installation",
+
+description: "An experimental AI installation that visualizes the impact of excessive online consumption, transforming user silhouettes in real-time.",
+
+  cover: "/images/decay/decay.png",
+  gallery: [
+    // "/images/silhouetten/silhouette1.png",
+    // "/images/silhouetten/silhouette2.png",
+    // "/images/silhouetten/silhouette3.png"
+  ],
+  video: "/images/decay/decay.mp4",
+  date: "2025-05-01",
+  technologies: ["MediaPipe", "StreamDiffusionTD", "TouchDesigner", "Motion Tracking", "Generative AI"],
+  role: "Concept Developer & Motion Designer",
+  link: null, 
+  caseStudy: `
+Silhouetten in Verval is a 4-6 week experimental project exploring the invisible effects of excessive online content consumption on personal and social perception.
+
+Visitors interact with the installation using a laptop or LED screen with camera and audio. The system tracks their gaze using MediaPipe; the longer they look at the screen, the more their generated silhouette distorts. Gradually, human features disappear, and audio evolves to reflect this transformation, culminating in a reflective text.
+  `,
+  stack: ["MediaPipe", "StreamDiffusionTD", "TouchDesigner", "Motion Tracking"]
+}
+
 ];

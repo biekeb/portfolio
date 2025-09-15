@@ -1,5 +1,5 @@
-"use client";
 
+"use client";
 
 import { useState } from "react";
 import { notFound } from "next/navigation";
@@ -64,9 +64,9 @@ export default function ProjectPage({ params }) {
       {/* Video */}
       {project.video && (
         <div className="mb-16">
-          <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+          {/* <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
             <PlayCircle size={22} /> Project Video
-          </h3>
+          </h3> */}
           <div className="aspect-video w-full rounded-xl overflow-hidden shadow-xl bg-darkBg">
             {project.video.endsWith(".mp4") ? (
               <video
