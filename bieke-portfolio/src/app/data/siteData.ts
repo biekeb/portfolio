@@ -135,7 +135,7 @@ Additionally, I designed their logo and social media templates to ensure brand c
 
 This holistic approach helped Mix and Move launch with a strong, recognizable visual identity and digital presence.
     `,
-        stack: ["Three.js", "React", "WebGL"],
+        stack: ["Website", "Graphic Design", "Marketing"],
 
   },
   {
@@ -156,13 +156,13 @@ This holistic approach helped Mix and Move launch with a strong, recognizable vi
     ],
     video: "https//youtu.be/mWUtJOmzCDQ",
     date: "2024-06-01",
-    technologies: ["Python", "FastAPI", "Hugging Face", "PostgreSQL"],
+    technologies: ["Three.js", "Blender", "React", "Adobe Creative Suit"],
     role: "Backend Developer",
     link: "https://noirsoir.onrender.com/",
     caseStudy: `
 Using React, Three.js, and Blender, I created a dynamic, film noir-inspired experience. The game combines intellectual challenges with an engaging story, offering an affordable, immersive alternative to costly modern games. This project reflects my passion for storytelling, game design, and innovative technology.
     `,
-    stack: ["Three.js", "React", "WebGL"],
+    stack: ["Fullstack", "React", "Blender", "Adobe"],
 
   },
   {
@@ -172,11 +172,13 @@ Using React, Three.js, and Blender, I created a dynamic, film noir-inspired expe
 
     description: 'The Final Show is an annual event that takes place on the Kaai campus of Erasmus',
 
-    cover: "images/finalshow/finalshow1920x1080.png",
+    cover: "/images/finalshow/finalshow1920x1080.png",
     gallery: [
-      "https://picsum.photos/600/400?random=21",
-      "https://picsum.photos/600/400?random=22",
-      "https://picsum.photos/600/400?random=23",
+              "/images/finalshow/finalshow.png",
+
+      "/images/finalshow/fs1.png",
+        "/images/finalshow/fs2.png",
+        "/images/finalshow/fs3.png",
     ],
     video: "/images/finalshow/finalshow.mp4",
     date: "2023-06-01",
@@ -193,7 +195,7 @@ My main responsibilities were twofold:
 The collaboration required close coordination between design and development, ensuring a smooth user experience while showcasing the creative spirit of the event. The final result was an immersive web experience that successfully highlighted the essence of the Final Show.
 
     `,  
-    stack: ["Three.js", "React", "WebGL"],
+    stack: ["Three.js", "React", "Blender"],
 
   },
     {
@@ -216,7 +218,7 @@ The collaboration required close coordination between design and development, en
     caseStudy: `
 To celebrate the launch of Squid Game Season 2 on December 26, we developed "The Telenet Squid Game," an innovative browser-based game playable on PC and tablet.  
 
-Players are dropped into an arena and must navigate the iconic Red Light, Green Light challenge using webcam motion detection. Freeze when the doll looks, sprint when she doesn't — one mistake and the player is out.  
+Players are dropped into an arena and must navigate the iconic Red Light, Green Light challenge using webcam motion detection. Freeze when the doll looks, sprint when she doesn't one mistake and the player is out.  
 
 The game supports up to four players simultaneously, with a live leaderboard and exclusive prizes like a Squid Game Xmas sweater and goodie bag.  
 

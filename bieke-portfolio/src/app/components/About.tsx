@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import pic from "/public/images/fotocvsquare.png";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function About() {
   return (
@@ -38,19 +39,30 @@ export default function About() {
 
           <div className="flex flex-wrap gap-4">
             <a
-              href="#projects"
+              href="#portfolio"
               className="inline-block bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition"
             >
               View Projects
             </a>
-            <a
-              href="https://github.com/biekeb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition"
-            >
-              GitHub
-            </a>
+<div className="flex gap-6 mt-4">
+  <a
+    href="https://github.com/biekeb"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-white hover:text-pink-500 transition text-3xl"
+  >
+    <FaGithub />
+  </a>
+  <a
+    href="www.linkedin.com/in/bieke-bellot-b8b8a11b8"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-white hover:text-pink-500 transition text-3xl"
+  >
+    <FaLinkedin />
+  </a>
+</div>
+
           </div>
         </motion.div>
 
