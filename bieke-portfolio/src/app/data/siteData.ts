@@ -125,16 +125,31 @@ export const projects = [
     technologies: ["React", "Next.js", "TailwindCSS", "Adobe After Effects", "Illustrator"],
     role: "Full-stack & Creative Designer",
     link: "https://mixandmove.be", 
-    caseStudy: `
-For Mix and Move, I handled the complete creative direction.  
-The project included designing and developing their promotional website, creating a dynamic launch video, and producing both digital and print graphics to unify their brand identity.  
+caseStudy: [
+  {
+    title: "About the Project",
+    description: `For Mix and Move, I led the entire creative direction.  
+I designed and developed the promotional website, created a dynamic launch video, and produced both digital and print graphics.`
+  },
+  {
+    title: "Website & Branding",
+    description: `Built in Next.js with a modern, clean UI.  
+Consistent visual style and branding.  
+Designed the logo and social media templates.`
+  },
+  {
+    title: "Video & Animation",
+    description: `Edited promotional video in After Effects.  
+Used animation in typography and transitions.  
+Integrated into the website for the launch.`
+  },
+  {
+    title: "Result",
+    description: `This approach delivered a strong, recognizable visual identity and digital presence.`
+  }
+],
 
-The website was built in Next.js with a clean, modern UI to match their energetic branding.  
-The promotional video was edited in After Effects, featuring animated typography and bold transitions.  
-Additionally, I designed their logo and social media templates to ensure brand consistency across all platforms.  
 
-This holistic approach helped Mix and Move launch with a strong, recognizable visual identity and digital presence.
-    `,
         stack: ["Website", "Graphic Design", "Marketing"],
 
   },
@@ -159,9 +174,29 @@ This holistic approach helped Mix and Move launch with a strong, recognizable vi
     technologies: ["Three.js", "Blender", "React", "Adobe Creative Suit"],
     role: "Backend Developer",
     link: "https://noirsoir.onrender.com/",
-    caseStudy: `
-Using React, Three.js, and Blender, I created a dynamic, film noir-inspired experience. The game combines intellectual challenges with an engaging story, offering an affordable, immersive alternative to costly modern games. This project reflects my passion for storytelling, game design, and innovative technology.
-    `,
+caseStudy: [
+  {
+    title: "About the Project",
+    description: `Noir Soir: Rouge Clues was developed as my bachelor graduation project, a 1950s-inspired murder mystery game.  
+Players investigate the murder of a mafia boss by gathering clues and interrogating suspects.`
+  },
+  {
+    title: "Design & Development",
+    description: `Built with React, Three.js, and Blender to create a cinematic film-noir atmosphere.  
+Carefully designed environments and characters immerse players in the story.  
+Combined narrative depth with interactive 3D mechanics.`
+  },
+  {
+    title: "Storytelling",
+    description: `The focus was on strong narrative structure, intellectual challenges, and replayability.  
+Players experience branching dialogues and puzzle-solving that drive the mystery forward.`
+  },
+  {
+    title: "Result",
+    description: `The project showcased my passion for storytelling, game design, and interactive technology, offering an engaging, affordable alternative to mainstream modern games.`
+  }
+],
+
     stack: ["Fullstack", "React", "Blender", "Adobe"],
 
   },
@@ -185,16 +220,27 @@ Using React, Three.js, and Blender, I created a dynamic, film noir-inspired expe
     technologies: ["Three.js", "React", "WebGL", "Blender", "After Effects"],
     role: "Motion Designer & Frontend Developer",
     link: "https://www.finalshow.be",
-    caseStudy: `
-The Final Show 23 was a three-week group project with four team members, created to promote the annual event on the Kaai campus of Erasmus.  
+caseStudy: [
+  {
+    title: "About the Project",
+    description: `Final Show 23 was a three-week group project with four team members, created to promote the annual event on the Kaai campus of Erasmus.`
+  },
+  {
+    title: "Motion Design",
+    description: `Designed and produced the animated assets that gave the website its dynamic and engaging feel.  
+Focused on timing, animation flow, and visual impact to strengthen the event’s identity.`
+  },
+  {
+    title: "3D Interactive Homepage",
+    description: `Built the main landing page featuring a fully interactive 3D building scene.  
+Modeled and implemented in Three.js and React to ensure seamless interaction.`
+  },
+  {
+    title: "Result",
+    description: `The final website delivered an immersive experience, reflecting the creative spirit of the event and successfully engaging the audience online.`
+  }
+],
 
-My main responsibilities were twofold:  
-- **Motion Design**: I designed and produced the animated assets that gave the website its dynamic and engaging feel.  
-- **Main 3D Page**: I built the interactive homepage featuring a full 3D building scene, modeled and implemented in Three.js and React.  
-
-The collaboration required close coordination between design and development, ensuring a smooth user experience while showcasing the creative spirit of the event. The final result was an immersive web experience that successfully highlighted the essence of the Final Show.
-
-    `,  
     stack: ["Three.js", "React", "Blender"],
 
   },
@@ -215,16 +261,28 @@ The collaboration required close coordination between design and development, en
     technologies: ["Three.js", "React", "WebGL", "Motion Detection", "JavaScript"],
     role: "Frontend Developer & Motion Designer",
     link: "https://telenetsquidgame.com/",
-    caseStudy: `
-To celebrate the launch of Squid Game Season 2 on December 26, we developed "The Telenet Squid Game," an innovative browser-based game playable on PC and tablet.  
+caseStudy: [
+  {
+    title: "About the Project",
+    description: `To celebrate the launch of Squid Game Season 2, we developed “The Telenet Squid Game,” a browser-based multiplayer experience playable on PC and tablet.`
+  },
+  {
+    title: "Gameplay & Interaction",
+    description: `Players joined the iconic Red Light, Green Light challenge.  
+Motion detection via webcam forced players to freeze when the doll looked and sprint when it didn’t.  
+One mistake meant instant elimination.`
+  },
+  {
+    title: "My Role",
+    description: `Worked on motion design and frontend development.  
+Integrated motion detection, created interactive 3D arenas in Three.js, and ensured smooth multiplayer performance.`
+  },
+  {
+    title: "Result",
+    description: `The project delivered a unique online experience, blending motion detection, multiplayer gameplay, and immersive design, with live leaderboards and exclusive rewards.`
+  }
+],
 
-Players are dropped into an arena and must navigate the iconic Red Light, Green Light challenge using webcam motion detection. Freeze when the doll looks, sprint when she doesn't one mistake and the player is out.  
-
-The game supports up to four players simultaneously, with a live leaderboard and exclusive prizes like a Squid Game Xmas sweater and goodie bag.  
-
-My role focused on **motion design** and the **frontend implementation**, including integrating motion detection mechanics, building interactive 3D arenas with Three.js, and ensuring a smooth multiplayer experience. The project required tight collaboration between designers, developers, and motion graphics specialists to deliver an engaging and immersive experience.
-
-    `,
     stack: ["Three.js", "React", "WebGL"],
 
   },
@@ -246,11 +304,27 @@ description: "An experimental AI installation that visualizes the impact of exce
   technologies: ["MediaPipe", "StreamDiffusionTD", "TouchDesigner", "Motion Tracking", "Generative AI"],
   role: "Concept Developer & Motion Designer",
   link: null, 
-  caseStudy: `
-Silhouetten in Verval is a 4-6 week experimental project exploring the invisible effects of excessive online content consumption on personal and social perception.
+caseStudy: [
+  {
+    title: "About the Project",
+    description: `Silhouetten in Verval is an experimental 4–6 week installation exploring the invisible effects of excessive online content consumption on human perception.`
+  },
+  {
+    title: "Concept & Interaction",
+    description: `Visitors engage with the installation through a laptop or LED screen.  
+MediaPipe tracks their gaze, while audio and visuals evolve in response to their attention span.`
+  },
+  {
+    title: "Generative Transformation",
+    description: `The longer participants focus on the screen, the more their silhouettes distort.  
+Gradually, recognizable human features fade, while sound design shifts into abstract reflections.`
+  },
+  {
+    title: "Result",
+    description: `The installation offered a critical, interactive reflection on digital overstimulation, merging motion tracking, generative AI, and artistic expression.`
+  }
+],
 
-Visitors interact with the installation using a laptop or LED screen with camera and audio. The system tracks their gaze using MediaPipe; the longer they look at the screen, the more their generated silhouette distorts. Gradually, human features disappear, and audio evolves to reflect this transformation, culminating in a reflective text.
-  `,
   stack: ["MediaPipe", "StreamDiffusionTD", "TouchDesigner", "Motion Tracking"]
 }
 

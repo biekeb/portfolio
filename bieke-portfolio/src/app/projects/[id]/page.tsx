@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -6,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Calendar, Tag, ArrowLeft, PlayCircle, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { projects } from "../../data/siteData";
+import Footer from "@/app/components/Footer";
 
 // helper to normalize video URLs
 function getEmbedUrl(url: string) {
@@ -26,6 +26,11 @@ function getEmbedUrl(url: string) {
 
 // @ts-expect-error: params type mismatch with Next.js internal PageProps
 export default function ProjectPage({ params }) {
+  // Bovenaan je component, na het vinden van 'project':
+const currentIndex = projects.findIndex((p) => p.id === params.id);
+const prevProject = projects[currentIndex - 1] || null;
+const nextProject = projects[currentIndex + 1] || null;
+
   const project = projects.find((p) => p.id === params.id);
   const [modalImgIndex, setModalImgIndex] = useState<number | null>(null); // index of current image
 
@@ -63,11 +68,8 @@ export default function ProjectPage({ params }) {
 
       {/* Video */}
       {project.video && (
-        <div className="mb-16">
-          {/* <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-            <PlayCircle size={22} /> Project Video
-          </h3> */}
-          <div className="aspect-video w-full rounded-xl overflow-hidden shadow-xl bg-darkBg">
+        <div className="mb-12 md:mb-16">
+          <div className="w-full md:w-4/5 lg:w-3/5 mx-auto aspect-video rounded-xl overflow-hidden shadow-lg bg-darkBg">
             {project.video.endsWith(".mp4") ? (
               <video
                 src={project.video}
@@ -89,7 +91,7 @@ export default function ProjectPage({ params }) {
 
       {/* Project Details + Technologies */}
       <div className="grid md:grid-cols-2 gap-8 mb-16">
-        <div className="bg-darkBg p-6 rounded-xl space-y-3 shadow-md">
+        <div className="bg-darkBg p-6 rounded-xl space-y-4 shadow-md">
           <h3 className="text-xl font-semibold mb-4">Project Details</h3>
           <ul className="space-y-3 text-white/80">
             <li className="flex items-center gap-2">
@@ -99,15 +101,14 @@ export default function ProjectPage({ params }) {
               <strong>Role:</strong> {project.role}
             </li>
             {project.link && (
-              <li>
-                <strong>Live Demo:</strong>{" "}
+              <li className="mt-2">
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-purple-400 hover:underline"
+                  className="inline-flex items-center gap-2 px-5 py-2 bg-purple-500 text-white font-medium rounded-lg shadow-md hover:bg-purple-600 transition"
                 >
-                  {project.link}
+                  <PlayCircle size={18} /> Live Demo
                 </a>
               </li>
             )}
@@ -131,19 +132,19 @@ export default function ProjectPage({ params }) {
 
       {/* Gallery */}
       {gallery.length > 0 && (
-        <div className="mb-16">
-          <h3 className="text-2xl font-semibold mb-6">Gallery</h3>
-          <div className="grid md:grid-cols-3 gap-6">
+        <div className="mb-12 md:mb-16">
+          <h3 className="text-2xl font-semibold mb-4 md:mb-6">Gallery</h3>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {gallery.map((img, i) => (
               <div
                 key={i}
-                className="overflow-hidden rounded-xl bg-darkBg shadow-md cursor-pointer"
+                className="overflow-hidden rounded-lg bg-darkBg shadow-md cursor-pointer"
                 onClick={() => openModal(i)}
               >
                 <img
                   src={img}
                   alt={`${project.title} screenshot ${i + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-48 md:h-56 lg:h-48 object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
             ))}
@@ -185,18 +186,58 @@ export default function ProjectPage({ params }) {
         </div>
       )}
 
-      {/* Case Study */}
-      {project.caseStudy && (
-        <div className="bg-darkBg p-8 rounded-xl shadow-md">
-          <h3 className="text-2xl font-semibold mb-6">Case Study</h3>
-          <div className="space-y-4 text-white/70 leading-relaxed">
-            {project.caseStudy.split("\n").map((para, idx) => (
-              <p key={idx}>{para}</p>
-            ))}
-          </div>
-        </div>
-      )}
+{/* Case Study Section */}
+<div className="max-w-[1320px] mx-auto px-5 md:px-10 xl:px-5 py-24 xl:py-28 text-white lg:flex gap-10">
+  {/* Linkerkolom: Titel (sticky) */}
+  <div className="w-full lg:w-1/3 mb-12 lg:mb-0">
+    <div className="sticky top-24">
+      <h6 className="pl-[20px] relative font-outfit font-medium text-sm uppercase tracking-wider text-white/40 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[12px] before:h-[12px] before:rounded-full before:border-2 before:border-white/30">
+        case
+      </h6>
+      <h2 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl text-white mt-2">
+        case{" "}
+        <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+          study
+        </span>
+      </h2>
     </div>
+  </div>
+
+  {/* Rechterkolom: Content dynamisch uit JSON */}
+  <div className="w-full lg:w-2/3 space-y-6">
+    {project.caseStudy?.map((block, i) => (
+      <div
+        key={i}
+        className="p-8 bg-[#1a1a1a] rounded-lg relative overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition duration-300"
+      >
+        <h3 className="text-xl font-semibold mb-4">{block.title}</h3>
+
+        {/* Check: als description bullets bevat, splits ze in lijst */}
+        {block.description.includes("•") ? (
+          <ul className="list-disc list-inside space-y-2 text-white/80">
+            {block.description.split("•").map((item, idx) =>
+              item.trim() ? <li key={idx}>{item.trim()}</li> : null
+            )}
+          </ul>
+        ) : (
+          <p className="text-white/80 leading-relaxed whitespace-pre-line">
+            {block.description}
+          </p>
+        )}
+
+        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-400 to-pink-500" />
+      </div>
+    ))}
+  </div>
+</div>
+
+
+      {/* Footer */}
+
+
+<Footer />
+
+    </div>
+
   );
 }
-

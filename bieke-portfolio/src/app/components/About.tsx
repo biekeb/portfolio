@@ -54,7 +54,7 @@ export default function About() {
     <FaGithub />
   </a>
   <a
-    href="www.linkedin.com/in/bieke-bellot-b8b8a11b8"
+    href="https://linkedin.com/in/bieke-bellot-b8b8a11b8"
     target="_blank"
     rel="noopener noreferrer"
     className="text-white hover:text-pink-500 transition text-3xl"
