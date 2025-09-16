@@ -110,6 +110,9 @@ export const projects = [
   {
     id: "1",
     title: "Mix and Move",
+        title2: "Mix and ",
+        title2Span: "Move",
+
         category: "Client Project",
 
     description:
@@ -156,6 +159,8 @@ Integrated into the website for the launch.`
   {
     id: "2",
     title: "Noir Soir: Rouge Clues",
+        title2: "Noir Soir: ",
+        title2Span: "Rouge Clues",
     category: "bachelor project",
 
     description: 'I developed Noir Soir: Rouge Clues, a 1950s murder mystery game, as my final project. Players solve the murder of a mafia boss by gathering clues and interrogating suspects. ',
@@ -203,6 +208,9 @@ Players experience branching dialogues and puzzle-solving that drive the mystery
   {
     id: "3",
     title: "Final Show 23",
+        title2: "Final Show ",
+        title2Span: "23",
+
     category: "Website",
 
     description: 'The Final Show is an annual event that takes place on the Kaai campus of Erasmus',
@@ -247,6 +255,8 @@ Modeled and implemented in Three.js and React to ensure seamless interaction.`
     {
     id: "4",
     title: "Telenet squid game",
+        title2: "Telenet squid ",
+        title2Span: "game",
     category: "Website",
 
     description: 'An immersive online game inspired by the popular Squid Game series, developed to celebrate the launch of its second season.',
@@ -288,7 +298,9 @@ Integrated motion detection, created interactive 3D arenas in Three.js, and ensu
   },
   {
   id: "5",
-  title: "Silhouetten in Verval",
+  title: "Silhouetten in Decay",
+        title2: "Silhouetten in ",
+        title2Span: "Decay",
   category: "Interactive Art Installation",
 
 description: "An experimental AI installation that visualizes the impact of excessive online consumption, transforming user silhouettes in real-time.",
@@ -307,7 +319,7 @@ description: "An experimental AI installation that visualizes the impact of exce
 caseStudy: [
   {
     title: "About the Project",
-    description: `Silhouetten in Verval is an experimental 4–6 week installation exploring the invisible effects of excessive online content consumption on human perception.`
+    description: `Silhouetten in Decay is an experimental 4–6 week installation exploring the invisible effects of excessive online content consumption on human perception.`
   },
   {
     title: "Concept & Interaction",

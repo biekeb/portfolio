@@ -2,10 +2,19 @@
 
 import { useState } from "react";
 import { notFound } from "next/navigation";
-import { Calendar, Tag, ArrowLeft, PlayCircle, X, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Calendar,
+  Tag,
+  ArrowLeft,
+  PlayCircle,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import Link from "next/link";
 import { projects } from "../../data/siteData";
 import Footer from "@/app/components/Footer";
+import { motion } from "framer-motion";
 
 // helper to normalize video URLs
 function getEmbedUrl(url: string) {
@@ -24,15 +33,20 @@ function getEmbedUrl(url: string) {
   return url;
 }
 
+// Small reusable animation variant
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 // @ts-expect-error: params type mismatch with Next.js internal PageProps
 export default function ProjectPage({ params }) {
-  // Bovenaan je component, na het vinden van 'project':
-const currentIndex = projects.findIndex((p) => p.id === params.id);
-const prevProject = projects[currentIndex - 1] || null;
-const nextProject = projects[currentIndex + 1] || null;
+  const currentIndex = projects.findIndex((p) => p.id === params.id);
+  const prevProject = projects[currentIndex - 1] || null;
+  const nextProject = projects[currentIndex + 1] || null;
 
   const project = projects.find((p) => p.id === params.id);
-  const [modalImgIndex, setModalImgIndex] = useState<number | null>(null); // index of current image
+  const [modalImgIndex, setModalImgIndex] = useState<number | null>(null);
 
   if (!project) return notFound();
   const gallery = project.gallery || [];
@@ -61,14 +75,32 @@ const nextProject = projects[currentIndex + 1] || null;
       </Link>
 
       {/* Title + Description */}
-      <h1 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl mb-4">
-        {project.title}
-      </h1>
-      <p className="text-lg text-white/70 max-w-3xl mb-10">{project.description}</p>
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <h1 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl mb-4">
+          {project.title2}{" "}
+          <span className="bg-themeGradient bg-clip-text text-transparent">
+            {project.title2Span}
+          </span>
+        </h1>
+        <p className="text-lg text-white/70 max-w-3xl mb-10">
+          {project.description}
+        </p>
+      </motion.div>
 
       {/* Video */}
       {project.video && (
-        <div className="mb-12 md:mb-16">
+        <motion.div
+          className="mb-12 md:mb-16"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <div className="w-full md:w-4/5 lg:w-3/5 mx-auto aspect-video rounded-xl overflow-hidden shadow-lg bg-darkBg">
             {project.video.endsWith(".mp4") ? (
               <video
@@ -86,11 +118,17 @@ const nextProject = projects[currentIndex + 1] || null;
               />
             )}
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Project Details + Technologies */}
-      <div className="grid md:grid-cols-2 gap-8 mb-16">
+      <motion.div
+        className="grid md:grid-cols-2 gap-8 mb-16"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <div className="bg-darkBg p-6 rounded-xl space-y-4 shadow-md">
           <h3 className="text-xl font-semibold mb-4">Project Details</h3>
           <ul className="space-y-3 text-white/80">
@@ -128,11 +166,17 @@ const nextProject = projects[currentIndex + 1] || null;
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Gallery */}
       {gallery.length > 0 && (
-        <div className="mb-12 md:mb-16">
+        <motion.div
+          className="mb-12 md:mb-16"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <h3 className="text-2xl font-semibold mb-4 md:mb-6">Gallery</h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {gallery.map((img, i) => (
@@ -149,7 +193,7 @@ const nextProject = projects[currentIndex + 1] || null;
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Modal */}
@@ -162,7 +206,6 @@ const nextProject = projects[currentIndex + 1] || null;
             <X size={24} />
           </button>
 
-          {/* Prev Arrow */}
           <button
             onClick={prevImage}
             className="absolute left-5 text-white p-2 hover:bg-white/20 rounded-full transition"
@@ -170,7 +213,6 @@ const nextProject = projects[currentIndex + 1] || null;
             <ChevronLeft size={32} />
           </button>
 
-          {/* Next Arrow */}
           <button
             onClick={nextImage}
             className="absolute right-5 text-white p-2 hover:bg-white/20 rounded-full transition"
@@ -186,58 +228,51 @@ const nextProject = projects[currentIndex + 1] || null;
         </div>
       )}
 
-{/* Case Study Section */}
-<div className="max-w-[1320px] mx-auto px-5 md:px-10 xl:px-5 py-24 xl:py-28 text-white lg:flex gap-10">
-  {/* Linkerkolom: Titel (sticky) */}
-  <div className="w-full lg:w-1/3 mb-12 lg:mb-0">
-    <div className="sticky top-24">
-      <h6 className="pl-[20px] relative font-outfit font-medium text-sm uppercase tracking-wider text-white/40 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[12px] before:h-[12px] before:rounded-full before:border-2 before:border-white/30">
-        case
-      </h6>
-      <h2 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl text-white mt-2">
-        case{" "}
-        <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-          study
-        </span>
-      </h2>
-    </div>
-  </div>
+      {/* Case Study Section */}
+      <div className="max-w-[1320px] mx-auto px-5 md:px-10 xl:px-5 py-24 xl:py-28 text-white lg:flex gap-10">
+        <div className="w-full lg:w-1/3 mb-12 lg:mb-0">
+          <div className="sticky top-24">
+            <h6 className="pl-[20px] relative font-outfit font-medium text-sm uppercase tracking-wider text-white/40 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[12px] before:h-[12px] before:rounded-full before:border-2 before:border-white/30">
+              case
+            </h6>
+            <h2 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl text-white mt-2">
+              case{" "}
+              <span className="bg-themeGradient bg-clip-text text-transparent">
+                study
+              </span>
+            </h2>
+          </div>
+        </div>
 
-  {/* Rechterkolom: Content dynamisch uit JSON */}
-  <div className="w-full lg:w-2/3 space-y-6">
-    {project.caseStudy?.map((block, i) => (
-      <div
-        key={i}
-        className="p-8 bg-[#1a1a1a] rounded-lg relative overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition duration-300"
-      >
-        <h3 className="text-xl font-semibold mb-4">{block.title}</h3>
-
-        {/* Check: als description bullets bevat, splits ze in lijst */}
-        {block.description.includes("•") ? (
-          <ul className="list-disc list-inside space-y-2 text-white/80">
-            {block.description.split("•").map((item, idx) =>
-              item.trim() ? <li key={idx}>{item.trim()}</li> : null
-            )}
-          </ul>
-        ) : (
-          <p className="text-white/80 leading-relaxed whitespace-pre-line">
-            {block.description}
-          </p>
-        )}
-
-        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-400 to-pink-500" />
+        <div className="w-full lg:w-2/3 space-y-6">
+          {project.caseStudy?.map((block, i) => (
+            <motion.div
+              key={i}
+              className="p-8 bg-[#1a1a1a] rounded-lg relative overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition duration-300"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold mb-4">{block.title}</h3>
+              {block.description.includes("•") ? (
+                <ul className="list-disc list-inside space-y-2 text-white/80">
+                  {block.description.split("•").map((item, idx) =>
+                    item.trim() ? <li key={idx}>{item.trim()}</li> : null
+                  )}
+                </ul>
+              ) : (
+                <p className="text-white/80 leading-relaxed whitespace-pre-line">
+                  {block.description}
+                </p>
+              )}
+              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-400 to-pink-500" />
+            </motion.div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
 
-
-      {/* Footer */}
-
-
-<Footer />
-
+      <Footer />
     </div>
-
   );
 }

@@ -62,7 +62,7 @@ export default function Portfolio() {
                 <Link
                   href={`/projects/${project.id}`}
                   className="mt-6 inline-block px-5 py-2 rounded-full 
-                    bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold 
+                    bg-gradient-to-r bg-themeGradient text-white font-semibold 
                     hover:opacity-90 transition"
                 >
                   See Details →

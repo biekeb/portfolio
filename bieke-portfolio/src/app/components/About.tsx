@@ -29,7 +29,7 @@ export default function About() {
           </div>
 
           <h2 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl text-white">
-            Hey, I&apos;m <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">Bieke</span>
+            Hey, I&apos;m <span className="bg-themeGradient bg-clip-text text-transparent">Bieke</span>
           </h2>
 
           <p className="text-white/70 leading-relaxed text-lg md:text-xl max-w-xl">
@@ -40,7 +40,7 @@ export default function About() {
           <div className="flex flex-wrap gap-4">
             <a
               href="#portfolio"
-              className="inline-block bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition"
+              className="inline-block bg-gradient-to-r bg-themeGradient text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition"
             >
               View Projects
             </a>
