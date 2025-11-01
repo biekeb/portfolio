@@ -34,9 +34,7 @@ const Services = () => {
         className="w-full lg:w-1/3"
         // variants={itemVariants}
       >
-        <h6 className="pl-[20px] relative font-outfit font-medium text-sm uppercase tracking-wider text-white/40 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[12px] before:h-[12px] before:rounded-full before:border-2 before:border-white/30">
-          {servicesData.mainData.title}
-        </h6>
+
         <h2 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl text-white mt-2">
           {servicesData.mainData.title2}{" "}
           <span className="bg-themeGradient bg-clip-text text-transparent">

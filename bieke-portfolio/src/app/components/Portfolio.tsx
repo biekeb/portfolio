@@ -7,9 +7,7 @@ export default function Portfolio() {
       <div className="max-w-[1320px] mx-auto">
         {/* Titel */}
         <div className="md:w-4/5 lg:w-3/4 mx-auto mb-16 text-center md:text-left">
-          <h6 className="pl-[20px] relative font-outfit font-medium text-sm uppercase tracking-wider text-white/40 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[12px] before:h-[12px] before:rounded-full before:border-2 before:border-white/30">
-            Portfolio
-          </h6>
+
           <h2 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl text-white mt-2">
             Recent <span className="bg-themeGradient bg-clip-text text-transparent">Works</span>
           </h2>

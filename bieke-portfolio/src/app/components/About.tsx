@@ -23,9 +23,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           <div className="w-full lg:w-1/3">
-            <h6 className="pl-[20px] relative font-outfit font-medium text-sm uppercase tracking-wider text-white/40 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[12px] before:h-[12px] before:rounded-full before:border-2 before:border-white/30">
-              about me
-            </h6>
+
           </div>
 
           <h2 className="font-outfit font-medium text-4xl md:text-5xl lg:text-6xl text-white">
